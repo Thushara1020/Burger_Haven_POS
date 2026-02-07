@@ -12,7 +12,7 @@ import { OrderSummaryComponent } from "../order-summary/order-summary.component"
 })
 export class FoodcardComponent {
   products: Product[] = products;
-  selectedProductIds: (number | string)[] = [];
+  selectedProductIds: (number)[] = [];
 
   private cartService = inject(CartService);
 
@@ -21,8 +21,8 @@ export class FoodcardComponent {
     addToOrder(item: Product) {
     this.cartService.addItem(item);
     
-    this.selectedProductIds.push(item.id,item.name,item.price,item.image);
+    this.selectedProductIds.push(item.id);
     
-    console.log('Current ID Array:', this.selectedProductIds);
+    console.log('Current ID Array:',this.selectedProductIds);
   }
   }
