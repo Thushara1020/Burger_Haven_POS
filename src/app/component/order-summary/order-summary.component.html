@@ -1,1 +1,80 @@
-<p>order-summary works!</p>
+<div
+  class="w-full md:w-96 bg-white border-l border-slate-200 flex flex-col h-screen sticky top-0"
+>
+  <div class="p-6 border-b border-slate-100">
+    <div class="flex items-center space-x-3">
+      <svg
+        class="w-6 h-6 text-slate-800"
+        fill="none"
+        stroke="currentColor"
+        viewBox="0 0 24 24"
+      >
+        <path
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          stroke-width="2"
+          d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z"
+        ></path>
+      </svg>
+      <h2 class="text-xl font-bold text-slate-800">Order Summary</h2>
+    </div>
+    <p class="text-slate-400 text-sm mt-1">0 items in cart</p>
+  </div>
+
+  <div class="flex-1 flex flex-col items-center justify-center p-10 opacity-40">
+    <div
+      class="max-w-sm rounded-2xl overflow-hidden shadow-lg bg-white hover:shadow-2xl transition-shadow duration-300 border border-gray-100"
+    >
+      <div class="relative">
+        <img
+          class="w-full h-56 object-cover"
+          src="https://images.unsplash.com/photo-1551504734-5ee1c4a1479b?q=80&w=800"
+          alt="Chicken Tacos"
+        />
+      </div>
+
+      <div class="p-5">
+        <h2 class="text-2xl font-bold text-gray-800 mb-2">Chicken Tacos</h2>
+
+        <div class="flex items-center justify-between">
+          <span class="text-2xl font-extrabold text-orange-600">Rs. 750</span>
+
+          <button
+            class="bg-black hover:bg-gray-800 text-white font-semibold py-2 px-5 rounded-lg transition-colors duration-200"
+          >
+            Delete
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="p-6 bg-slate-50 rounded-t-[2.5rem] shadow-2xl">
+    <div class="space-y-3 mb-6">
+      <div class="flex justify-between text-slate-600 font-medium">
+        <span>Subtotal</span>
+        <span>$0.00</span>
+      </div>
+      <div class="flex justify-between text-green-600 font-medium">
+        <span>Discount (10%)</span>
+        <span>-$0.00</span>
+      </div>
+      <div class="flex justify-between text-slate-600 font-medium">
+        <span>Tax (8%)</span>
+        <span>$0.00</span>
+      </div>
+      <div
+        class="pt-3 border-t border-slate-200 flex justify-between text-2xl font-black text-slate-900"
+      >
+        <span>Total</span>
+        <span>$0.00</span>
+      </div>
+    </div>
+
+    <button
+      class="w-full bg-slate-400 py-4 rounded-2xl text-white font-bold text-lg cursor-not-allowed transition"
+    >
+      Confirm Payment
+    </button>
+  </div>
+</div>
