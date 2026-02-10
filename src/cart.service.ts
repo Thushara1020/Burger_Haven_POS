@@ -24,6 +24,6 @@ export class CartService {
   }
 
   getAllItemsFromApi(): Observable<any[]> {
-    return this.http.get<any[]>('http://localhost:8080/api/item/all');
+    return this.http.get<any[]>('http://localhost:8080/api/items/all');
   }
 }
