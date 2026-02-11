@@ -1,39 +1,88 @@
 <div class="p-6 max-w-5xl mx-auto">
   <div class="mb-6">
     <h2 class="text-2xl font-bold text-gray-800">Manage Items</h2>
-    <p class="text-gray-500 text-sm">You can view and remove items from your store here.</p>
+    <p class="text-gray-500 text-sm">
+      You can view and remove items from your store here.
+    </p>
   </div>
 
-  <div class="bg-white rounded-xl shadow-sm border border-gray-200 overflow-hidden">
+  <div
+    class="bg-white rounded-xl shadow-sm border border-gray-200 overflow-hidden"
+  >
     <table class="w-full text-left border-collapse">
       <thead class="bg-gray-50 border-b border-gray-200">
         <tr>
-          <th class="px-6 py-4 text-sm font-semibold text-gray-600 uppercase">Product</th>
-          <th class="px-6 py-4 text-sm font-semibold text-gray-600 uppercase">Price</th>
-          <th class="px-6 py-4 text-sm font-semibold text-gray-600 uppercase">Status</th>
-          <th class="px-6 py-4 text-sm font-semibold text-gray-600 uppercase text-center">Action</th>
+          <th class="px-6 py-4 text-sm font-semibold text-gray-600 uppercase">
+            Product
+          </th>
+          <th class="px-6 py-4 text-sm font-semibold text-gray-600 uppercase">
+            Price
+          </th>
+          <th class="px-6 py-4 text-sm font-semibold text-gray-600 uppercase">
+            Status
+          </th>
+          <th
+            class="px-6 py-4 text-sm font-semibold text-gray-600 uppercase text-center"
+          >
+            Action
+          </th>
         </tr>
       </thead>
       <tbody class="divide-y divide-gray-100">
-        <tr *ngFor="let item of products; let i = index" class="hover:bg-gray-50 transition-colors">
+        <tr
+          *ngFor="let item of products; let i = index"
+          class="hover:bg-gray-50 transition-colors"
+        >
           <td class="px-6 py-4">
             <div class="flex items-center gap-4">
-              <img [src]="item.image" alt="product" class="h-12 w-12 rounded-lg object-cover border">
-              <span class="font-medium text-gray-800 uppercase tracking-tight">{{ item.name }}</span>
+              <img
+                [src]="item.image"
+                alt="product"
+                class="h-12 w-12 rounded-lg object-cover border"
+              />
+              <span
+                class="font-medium text-gray-800 uppercase tracking-tight"
+                >{{ item.name }}</span
+              >
             </div>
           </td>
           <td class="px-6 py-4 text-gray-600 font-medium">
-            LKR {{ item.price | number:'1.2-2' }}
+            LKR {{ item.price | number: "1.2-2" }}
           </td>
           <td class="px-6 py-4">
-            <span [ngClass]="item.status === 'available' ? 'bg-green-100 text-green-700' : 'bg-red-100 text-red-700'"
-                  class="px-3 py-1 rounded-full text-xs font-bold uppercase">
-              {{ item.status }}
-            </span>
+            <select
+              (change)="updateStatus(item, $any($event.target).value)"
+              [ngClass]="{
+                'bg-green-100 text-green-700': item.status === 'available',
+                'bg-red-100 text-red-700': item.status === 'out-of-stock',
+              }"
+              class="px-3 py-1 rounded-full text-xs font-bold uppercase border-none focus:ring-0 cursor-pointer"
+            >
+              <option
+                value="available"
+                [selected]="item.status === 'available'"
+              >
+                Available
+              </option>
+              <option
+                value="out-of-stock"
+                [selected]="item.status === 'out-of-stock'"
+              >
+                Out of Stock
+              </option>
+              <option
+                value="discontinued"
+                [selected]="item.status === 'discontinued'"
+              >
+                Discontinued
+              </option>
+            </select>
           </td>
           <td class="px-6 py-4 text-center">
-            <button (click)="deleteItem(i)" 
-                    class="bg-red-50 hover:bg-red-500 text-red-600 hover:text-white px-4 py-2 rounded-lg text-sm font-bold transition duration-200 border border-red-200">
+            <button
+              (click)="deleteItem(item.id)"
+              class="bg-red-50 hover:bg-red-500 text-red-600 hover:text-white px-4 py-2 rounded-lg text-sm font-bold transition duration-200 border border-red-200"
+            >
               Remove
             </button>
           </td>
