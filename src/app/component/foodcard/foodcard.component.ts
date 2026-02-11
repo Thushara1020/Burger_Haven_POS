@@ -1,4 +1,4 @@
-import { Component, inject, OnInit } from '@angular/core'; // 1. OnInit import කරන්න
+import { Component, inject, OnInit } from '@angular/core';
 import { Product } from "../../../model/products";
 import { CartService } from "../../../cart.service";
 import { OrderSummaryComponent } from "../order-summary/order-summary.component";
@@ -20,7 +20,6 @@ export class FoodcardComponent implements OnInit {
 
   ngOnInit() {
   this.cartService.getAllItemsFromApi().subscribe(data => {
-    console.log("Backend එකෙන් ආපු බඩු:", data);
     this.products = data;
   });
 }
@@ -29,11 +28,11 @@ export class FoodcardComponent implements OnInit {
     this.cartService.getAllItemsFromApi().subscribe({
       next: (data: Product[]) => {
         this.products = data; 
-        console.log('Data loaded successfully:', data);
+        console.log('Data loaded successfully');
       },
       error: (err) => {
         console.error('API Error:', err);
-        alert('Backend is Nor Work!');
+        alert('Backend is Not Working!');
       }
     });
   }
