@@ -1,0 +1,101 @@
+<app-navbar></app-navbar>
+
+
+<div class="p-8 max-w-6xl mx-auto bg-gray-50 min-h-screen">
+  
+  <div class="flex justify-between items-end mb-10 border-b-2 border-gray-200 pb-6">
+    <div>
+      <h2 class="text-4xl font-black text-gray-900 tracking-tighter">INVENTORY ANALYTICS</h2>
+      <p class="text-gray-500 font-medium">Visual data representation of your store's performance.</p>
+    </div>
+    <button class="bg-black text-white px-8 py-3 rounded-2xl font-bold hover:bg-gray-800 transition-all no-print shadow-lg">
+      Print Full Report
+    </button>
+  </div>
+
+  <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
+    <div class="bg-blue-600 p-6 rounded-3xl text-white shadow-xl">
+      <p class="text-blue-100 text-xs font-bold uppercase mb-1">Total Stock Value</p>
+      <h3 class="text-3xl font-black">LKR 840,250</h3>
+    </div>
+    <div class="bg-white p-6 rounded-3xl border border-gray-200 shadow-sm">
+      <p class="text-gray-400 text-xs font-bold uppercase mb-1">Available Items</p>
+      <h3 class="text-3xl font-black text-green-600">124</h3>
+    </div>
+    <div class="bg-white p-6 rounded-3xl border border-gray-200 shadow-sm">
+      <p class="text-gray-400 text-xs font-bold uppercase mb-1">Out of Stock</p>
+      <h3 class="text-3xl font-black text-red-500">12</h3>
+    </div>
+  </div>
+
+  <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-10">
+    
+    <div class="bg-white p-8 rounded-3xl border border-gray-200 shadow-sm">
+      <h4 class="text-lg font-bold text-gray-800 mb-6">Stock Distribution</h4>
+      <div class="flex items-center justify-around">
+        <div class="relative w-48 h-48 rounded-full border-[15px] border-green-500 flex items-center justify-center" style="border-right-color: #ef4444; border-bottom-color: #f59e0b;">
+          <div class="text-center">
+            <span class="block text-2xl font-black text-gray-800">85%</span>
+            <span class="text-[10px] text-gray-400 uppercase font-bold">Healthy</span>
+          </div>
+        </div>
+        <div class="space-y-3">
+          <div class="flex items-center gap-2"><div class="w-3 h-3 bg-green-500 rounded-full"></div> <span class="text-xs font-bold text-gray-600">Available (85%)</span></div>
+          <div class="flex items-center gap-2"><div class="w-3 h-3 bg-red-500 rounded-full"></div> <span class="text-xs font-bold text-gray-600">Out of Stock (10%)</span></div>
+          <div class="flex items-center gap-2"><div class="w-3 h-3 bg-amber-500 rounded-full"></div> <span class="text-xs font-bold text-gray-600">Low Stock (5%)</span></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="bg-white p-8 rounded-3xl border border-gray-200 shadow-sm">
+      <h4 class="text-lg font-bold text-gray-800 mb-6">Category Wise Levels</h4>
+      <div class="space-y-4">
+        <div>
+          <div class="flex justify-between text-xs font-bold mb-1"><span>Laptops</span> <span>90%</span></div>
+          <div class="w-full bg-gray-100 h-3 rounded-full overflow-hidden"><div class="bg-blue-600 h-full w-[90%]"></div></div>
+        </div>
+        <div>
+          <div class="flex justify-between text-xs font-bold mb-1"><span>Accessories</span> <span>65%</span></div>
+          <div class="w-full bg-gray-100 h-3 rounded-full overflow-hidden"><div class="bg-blue-600 h-full w-[65%]"></div></div>
+        </div>
+        <div>
+          <div class="flex justify-between text-xs font-bold mb-1"><span>Monitors</span> <span>40%</span></div>
+          <div class="w-full bg-gray-100 h-3 rounded-full overflow-hidden"><div class="bg-blue-600 h-full w-[40%]"></div></div>
+        </div>
+        <div>
+          <div class="flex justify-between text-xs font-bold mb-1"><span>Storage</span> <span>25%</span></div>
+          <div class="w-full bg-gray-100 h-3 rounded-full overflow-hidden"><div class="bg-red-500 h-full w-[25%]"></div></div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="bg-white rounded-3xl shadow-sm border border-gray-200 overflow-hidden">
+    <div class="p-6 bg-gray-50 border-b border-gray-200">
+        <h4 class="font-bold text-gray-700 uppercase text-sm tracking-widest">Recent Inventory Movements</h4>
+    </div>
+    <table class="w-full text-left">
+      <thead>
+        <tr class="text-[11px] font-black text-gray-400 uppercase tracking-tighter border-b">
+          <th class="px-8 py-4">Item Details</th>
+          <th class="px-8 py-4 text-center">Current Status</th>
+          <th class="px-8 py-4 text-right">Price Value</th>
+        </tr>
+      </thead>
+      <tbody class="divide-y divide-gray-100 text-sm">
+        <tr class="hover:bg-gray-50 transition-colors">
+          <td class="px-8 py-4 font-bold text-gray-800">ASUS ROG Zephyrus G14</td>
+          <td class="px-8 py-4 text-center"><span class="bg-green-100 text-green-700 px-3 py-1 rounded-full text-[10px] font-black">AVAILABLE</span></td>
+          <td class="px-8 py-4 text-right font-mono font-bold">420,000.00</td>
+        </tr>
+        <tr class="hover:bg-gray-50 transition-colors">
+          <td class="px-8 py-4 font-bold text-gray-800">Razer DeathAdder V3</td>
+          <td class="px-8 py-4 text-center"><span class="bg-red-100 text-red-600 px-3 py-1 rounded-full text-[10px] font-black">OUT OF STOCK</span></td>
+          <td class="px-8 py-4 text-right font-mono font-bold">24,500.00</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+</div>
