@@ -6,7 +6,7 @@ import { RemovitemsComponent } from "../../component/removitems/removitems.compo
 
 @Component({
   selector: 'app-inventory',
-  imports: [NavbarComponent, FoodcardComponent, AdditemsComponent, RemovitemsComponent],
+  imports: [NavbarComponent,AdditemsComponent, RemovitemsComponent],
   templateUrl: './inventory.component.html',
   styleUrl: './inventory.component.css'
 })
