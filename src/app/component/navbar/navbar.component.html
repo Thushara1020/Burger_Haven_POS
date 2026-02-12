@@ -24,23 +24,23 @@
 
       <div class="hidden lg:flex items-center space-x-4">
         <a
-          routerLink=""
+          routerLink="" routerLinkActive=" bg-indigo-800 text-white" [routerLinkActiveOptions]="{ exact: true }"
           class="text-white bg-indigo-800 px-3 py-2 rounded-md text-sm font-medium hover:bg-indigo-600 transition"
           >Dashboard</a
         >
 
         <a
-          routerLink="/menuorder"
+          routerLink="/menuorder" routerLinkActive=" bg-indigo-800 text-white" [routerLinkActiveOptions]="{ exact: true }"
           class="text-indigo-100 px-3 py-2 rounded-md text-sm font-medium hover:bg-indigo-600 hover:text-white transition"
           >Order Menu</a
         >
         <a
-          routerLink="/inventory"
+          routerLink="/inventory" routerLinkActive=" bg-indigo-800 text-white" [routerLinkActiveOptions]="{ exact: true }"
           class="text-indigo-100 px-3 py-2 rounded-md text-sm font-medium hover:bg-indigo-600 hover:text-white transition"
           >inventory
         </a>
         <a
-          routerLink="/reports"
+          routerLink="/reports" routerLinkActive=" bg-indigo-800 text-white" [routerLinkActiveOptions]="{ exact: true }"
           class="text-indigo-100 px-3 py-2 rounded-md text-sm font-medium hover:bg-indigo-600 hover:text-white transition"
           >Reports</a
         >
