@@ -1,83 +1,83 @@
-<div class="p-6 max-w-5xl mx-auto">
-  <div class="mb-6">
-    <h2 class="text-2xl font-bold text-gray-800">Manage Items</h2>
-    <p class="text-gray-500 text-sm">
-      You can view and remove items from your store here.
-    </p>
+<div class="p-6 max-w-6xl mx-auto">
+  <div class="mb-6 flex flex-col md:flex-row md:items-center justify-between gap-4">
+    <div>
+      <h2 class="text-2xl font-bold text-gray-800">Manage Items</h2>
+      <p class="text-gray-500 text-sm">View and manage items based on category and availability.</p>
+    </div>
+
+    <div class="flex flex-wrap gap-4">
+      <div class="flex flex-col">
+        <label class="text-[10px] font-bold text-gray-400 uppercase mb-1">Category</label>
+        <select 
+          [(ngModel)]="selectedCategory" 
+          (change)="applyFilter()"
+          class="border border-gray-200 rounded-lg px-3 py-2 text-sm focus:ring-2 focus:ring-blue-500 outline-none bg-white shadow-sm min-w-[140px]">
+          <option value="all">All Categories</option>
+          <option value="Food">Food</option>
+          <option value="Beverage">Beverage</option>
+        </select>
+      </div>
+
+      <div class="flex flex-col">
+        <label class="text-[10px] font-bold text-gray-400 uppercase mb-1">Status</label>
+        <select 
+          [(ngModel)]="selectedStatus" 
+          (change)="applyFilter()"
+          class="border border-gray-200 rounded-lg px-3 py-2 text-sm focus:ring-2 focus:ring-blue-500 outline-none bg-white shadow-sm min-w-[140px]">
+          <option value="all">All Status</option>
+          <option value="available">Available</option>
+          <option value="out-of-stock">Out of Stock</option>
+        </select>
+      </div>
+    </div>
   </div>
 
-  <div
-    class="bg-white rounded-xl shadow-sm border border-gray-200 overflow-hidden"
-  >
+  <div class="bg-white rounded-xl shadow-sm border border-gray-200 overflow-hidden">
     <table class="w-full text-left border-collapse">
       <thead class="bg-gray-50 border-b border-gray-200">
         <tr>
-          <th class="px-6 py-4 text-sm font-semibold text-gray-600 uppercase">
-            Product
-          </th>
-          <th class="px-6 py-4 text-sm font-semibold text-gray-600 uppercase">
-            Price
-          </th>
-          <th class="px-6 py-4 text-sm font-semibold text-gray-600 uppercase">
-            Status
-          </th>
-          <th
-            class="px-6 py-4 text-sm font-semibold text-gray-600 uppercase text-center"
-          >
-            Action
-          </th>
+          <th class="px-6 py-4 text-sm font-semibold text-gray-600 uppercase">Product</th>
+          <th class="px-6 py-4 text-sm font-semibold text-gray-600 uppercase">Category</th>
+          <th class="px-6 py-4 text-sm font-semibold text-gray-600 uppercase">Price</th>
+          <th class="px-6 py-4 text-sm font-semibold text-gray-600 uppercase">Status</th>
+          <th class="px-6 py-4 text-sm font-semibold text-gray-600 uppercase text-center">Action</th>
         </tr>
       </thead>
       <tbody class="divide-y divide-gray-100">
-        <tr
-          *ngFor="let item of products; let i = index"
-          class="hover:bg-gray-50 transition-colors"
-        >
+        <tr *ngFor="let item of filteredProducts" class="hover:bg-gray-50 transition-colors">
           <td class="px-6 py-4">
             <div class="flex items-center gap-4">
-              <img
-                [src]="item.image"
-                alt="product"
-                class="h-12 w-12 rounded-lg object-cover border"
-              />
-              <span
-                class="font-medium text-gray-800 uppercase tracking-tight"
-                >{{ item.name }}</span
-              >
+              <img [src]="item.image" alt="product" class="h-12 w-12 rounded-lg object-cover border" />
+              <span class="font-medium text-gray-800 uppercase tracking-tight">{{ item.name }}</span>
             </div>
           </td>
+          
+          <td class="px-6 py-4">
+            <span class="px-2 py-1 bg-blue-50 text-blue-600 text-[10px] font-bold uppercase rounded">
+              {{ item.filter }}
+            </span>
+          </td>
+
           <td class="px-6 py-4 text-gray-600 font-medium">
             LKR {{ item.price | number: "1.2-2" }}
           </td>
+
           <td class="px-6 py-4">
             <select
               (change)="updateStatus(item, $any($event.target).value)"
               [ngClass]="{
                 'bg-green-100 text-green-700': item.status === 'available',
                 'bg-red-100 text-red-700': item.status === 'out-of-stock',
+                'bg-gray-100 text-gray-700': item.status === 'discontinued'
               }"
               class="px-3 py-1 rounded-full text-xs font-bold uppercase border-none focus:ring-0 cursor-pointer"
             >
-              <option
-                value="available"
-                [selected]="item.status === 'available'"
-              >
-                Available
-              </option>
-              <option
-                value="out-of-stock"
-                [selected]="item.status === 'out-of-stock'"
-              >
-                Out of Stock
-              </option>
-              <option
-                value="discontinued"
-                [selected]="item.status === 'discontinued'"
-              >
-                Discontinued
-              </option>
+              <option value="available" [selected]="item.status === 'available'">Available</option>
+              <option value="out-of-stock" [selected]="item.status === 'out-of-stock'">Out of Stock</option>
+              <option value="discontinued" [selected]="item.status === 'discontinued'">Discontinued</option>
             </select>
           </td>
+
           <td class="px-6 py-4 text-center">
             <button
               (click)="deleteItem(item.id)"
@@ -88,9 +88,9 @@
           </td>
         </tr>
 
-        <tr *ngIf="products.length === 0">
-          <td colspan="4" class="px-6 py-12 text-center text-gray-400 italic">
-            No items available in the list.
+        <tr *ngIf="filteredProducts.length === 0">
+          <td colspan="5" class="px-6 py-12 text-center text-gray-400 italic">
+            No items found for the selected filters.
           </td>
         </tr>
       </tbody>
