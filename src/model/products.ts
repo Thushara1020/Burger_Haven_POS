@@ -4,5 +4,6 @@ export interface Product {
   price: number;
   image: string;
   status: 'Available' | 'Out of Stock' | 'Sold Out';
+  filter: 'Beverages' | 'Food';
 }
 
