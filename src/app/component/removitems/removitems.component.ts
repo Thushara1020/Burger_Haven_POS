@@ -1,16 +1,22 @@
 import { CommonModule } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { CartService } from '../../../cart.service';
+import { FormsModule } from '@angular/forms'; 
 
 @Component({
   selector: 'app-removitems',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, FormsModule],
   templateUrl: './removitems.component.html',
   styleUrl: './removitems.component.css',
 })
 export class RemovitemsComponent implements OnInit {
   products: any[] = [];
+  filteredProducts: any[] = []; 
+  
+
+  selectedCategory: string = 'all';
+  selectedStatus: string = 'all';
 
   constructor(private cartService: CartService) {}
 
@@ -22,8 +28,20 @@ export class RemovitemsComponent implements OnInit {
     this.cartService.getAllItemsFromApi().subscribe({
       next: (data) => {
         this.products = data;
+        this.applyFilter(); 
+        console.log('Products loaded:', this.products);
       },
       error: (err) => console.error('Error fetching data:', err),
+    });
+  }
+
+
+  applyFilter() {
+    this.filteredProducts = this.products.filter(item => {
+      const categoryMatch = this.selectedCategory === 'all' || item.filter === this.selectedCategory;
+      const statusMatch = this.selectedStatus === 'all' || item.status === this.selectedStatus;
+      
+      return categoryMatch && statusMatch;
     });
   }
 
@@ -46,6 +64,7 @@ export class RemovitemsComponent implements OnInit {
     this.cartService.updateItemStatus(item.id, newStatus).subscribe({
       next: (updatedItem) => {
         item.status = updatedItem.status;
+        this.applyFilter();
         console.log('Status updated!');
       },
       error: (err) => {
