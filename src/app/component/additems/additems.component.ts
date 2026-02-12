@@ -3,6 +3,7 @@ import { FormBuilder, FormGroup, Validators, ReactiveFormsModule } from '@angula
 import { CommonModule } from '@angular/common';
 import { CartService } from '../../../cart.service';
 import { Router } from '@angular/router';
+import { filter } from 'rxjs';
 
 
 @Component({
@@ -22,7 +23,9 @@ export class AdditemsComponent implements OnInit {
       name: ['', [Validators.required]],
       image: ['', [Validators.required]],
       status: ['available', [Validators.required]],
-      price: [null, [Validators.required, Validators.min(0)]]
+      price: [null, [Validators.required, Validators.min(0)]],
+      filter: ['Food', [Validators.required]]
+      
     });
   }
 
