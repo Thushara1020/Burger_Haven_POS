@@ -1,5 +1,4 @@
 <div class="min-h-screen bg-gray-50 flex">
-  
   <main class="flex-1 p-8">
     <header class="flex justify-between items-center mb-8">
       <div>
@@ -7,12 +6,14 @@
         <p class="text-gray-500">Here's what's happening today.</p>
       </div>
       <div class="flex items-center space-x-4">
-        <div class="text-right">
-          <p class="font-bold">Feb 07, 2026</p>
-          <p class="text-sm text-green-500 font-medium">System Online</p>
-        </div>
-        <div class="w-12 h-12 bg-orange-200 rounded-full flex items-center justify-center border-2 border-orange-400">
-          👨‍🍳
+        <div class="time-container">
+          <div class="date-display">
+            {{ currentTime | date: "fullDate" }}
+          </div>
+
+          <div class="clock-display">
+            <strong>{{ currentTime | date: "hh:mm:ss a" }}</strong>
+          </div>
         </div>
       </div>
     </header>
@@ -21,12 +22,16 @@
       <div class="bg-white p-6 rounded-2xl shadow-sm border border-gray-100">
         <p class="text-gray-400 text-sm font-medium">Today's Revenue</p>
         <h3 class="text-2xl font-bold mt-1">Rs. 45,250.00</h3>
-        <span class="text-green-500 text-sm font-medium">↑ 12% from yesterday</span>
+        <span class="text-green-500 text-sm font-medium"
+          >↑ 12% from yesterday</span
+        >
       </div>
       <div class="bg-white p-6 rounded-2xl shadow-sm border border-gray-100">
         <p class="text-gray-400 text-sm font-medium">Total Orders</p>
         <h3 class="text-2xl font-bold mt-1">128</h3>
-        <span class="text-orange-500 text-sm font-medium">15 Pending Orders</span>
+        <span class="text-orange-500 text-sm font-medium"
+          >15 Pending Orders</span
+        >
       </div>
       <div class="bg-white p-6 rounded-2xl shadow-sm border border-gray-100">
         <p class="text-gray-400 text-sm font-medium">Best Seller</p>
@@ -35,8 +40,12 @@
       </div>
     </div>
 
-    <div class="bg-white rounded-2xl shadow-sm border border-gray-100 overflow-hidden">
-      <div class="p-6 border-b border-gray-100 flex justify-between items-center">
+    <div
+      class="bg-white rounded-2xl shadow-sm border border-gray-100 overflow-hidden"
+    >
+      <div
+        class="p-6 border-b border-gray-100 flex justify-between items-center"
+      >
         <h4 class="font-bold text-gray-800 text-lg">Recent Orders</h4>
         <button class="text-orange-600 font-semibold text-sm">View All</button>
       </div>
@@ -54,13 +63,23 @@
             <td class="px-6 py-4 font-medium">#BH-2045</td>
             <td class="px-6 py-4 text-gray-600">Double BBQ Burger</td>
             <td class="px-6 py-4 font-bold">Rs. 1,450.00</td>
-            <td class="px-6 py-4"><span class="px-3 py-1 bg-green-100 text-green-600 rounded-full text-xs font-bold">Delivered</span></td>
+            <td class="px-6 py-4">
+              <span
+                class="px-3 py-1 bg-green-100 text-green-600 rounded-full text-xs font-bold"
+                >Delivered</span
+              >
+            </td>
           </tr>
           <tr>
             <td class="px-6 py-4 font-medium">#BH-2046</td>
             <td class="px-6 py-4 text-gray-600">Crispy Chicken Sub</td>
             <td class="px-6 py-4 font-bold">Rs. 950.00</td>
-            <td class="px-6 py-4"><span class="px-3 py-1 bg-yellow-100 text-yellow-600 rounded-full text-xs font-bold">Preparing</span></td>
+            <td class="px-6 py-4">
+              <span
+                class="px-3 py-1 bg-yellow-100 text-yellow-600 rounded-full text-xs font-bold"
+                >Preparing</span
+              >
+            </td>
           </tr>
         </tbody>
       </table>
