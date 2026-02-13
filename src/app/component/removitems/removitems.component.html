@@ -25,8 +25,9 @@
           (change)="applyFilter()"
           class="border border-gray-200 rounded-lg px-3 py-2 text-sm focus:ring-2 focus:ring-blue-500 outline-none bg-white shadow-sm min-w-[140px]">
           <option value="all">All Status</option>
-          <option value="available">Available</option>
-          <option value="out-of-stock">Out of Stock</option>
+          <option value="Available">Available</option>
+          <option value="Out of Stock">Out of Stock</option>
+          <option value="Sold Out">Sold Out</option>
         </select>
       </div>
     </div>
@@ -74,8 +75,9 @@
             >
               <option value="available" [selected]="item.status === 'available'">Available</option>
               <option value="out-of-stock" [selected]="item.status === 'out-of-stock'">Out of Stock</option>
-              <option value="discontinued" [selected]="item.status === 'discontinued'">Discontinued</option>
-            </select>
+              <option value="Sold Out" [selected]="item.status === 'Sold Out'">Sold Out</option>
+              
+            </select> 
           </td>
 
           <td class="px-6 py-4 text-center">
