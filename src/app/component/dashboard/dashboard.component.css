@@ -1,0 +1,16 @@
+.time-container {
+  padding: 15px;
+  background: #f4f4f4;
+  border-radius: 8px;
+  text-align: right; 
+}
+
+.clock-display {
+  font-size: 1.5rem;
+  color: #333;
+}
+
+.date-display {
+  font-size: 0.9rem;
+  color: #666;
+}
