@@ -25,4 +25,5 @@ export class DashboardComponent implements OnInit, OnDestroy {
       clearInterval(this.timer);
     }
   }
+  
 }
