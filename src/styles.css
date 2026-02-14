@@ -1,1 +1,62 @@
 @import "tailwindcss";
+
+
+body.dark-mode {
+  background-color: #121212 !important; 
+  color: #ffffff !important;           
+}
+
+body.dark-mode .card, 
+body.dark-mode .sidebar, 
+body.dark-mode nav {
+  background-color: #1e1e1e !important;
+  border-color: #333 !important;
+  color: white !important;
+}
+
+body {
+  transition: background-color 0.4s ease, color 0.4s ease;
+}
+
+
+body.dark-mode .min-h-screen {
+  background-color: #121212 !important;
+}
+
+
+body.dark-mode h2, 
+body.dark-mode h4,
+body.dark-mode .text-gray-800 {
+  color: #ffffff !important;
+}
+
+body.dark-mode p,
+body.dark-mode .text-gray-500,
+body.dark-mode .text-gray-400 {
+  color: #a0a0a0 !important;
+}
+
+
+body.dark-mode .bg-white {
+  background-color: #1e1e1e !important;
+  border-color: #333333 !important;
+}
+
+body.dark-mode .bg-gray-50 {
+  background-color: #2d2d2d !important;
+}
+
+body.dark-mode .divide-y,
+body.dark-mode .border-gray-100,
+body.dark-mode .border-b {
+  border-color: #333333 !important;
+}
+
+
+body.dark-mode td {
+  color: #e0e0e0 !important;
+}
+
+body.dark-mode .text-gray-600 {
+  color: #bbbbbb !important;
+}
