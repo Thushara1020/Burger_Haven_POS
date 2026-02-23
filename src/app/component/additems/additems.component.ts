@@ -25,8 +25,8 @@ export class AdditemsComponent implements OnInit {
       status: ['available', [Validators.required]],
       price: [null, [Validators.required, Validators.min(0)]],
       filter: ['Food', [Validators.required]]
-      
     });
+
   }
 
 onSubmit() {
